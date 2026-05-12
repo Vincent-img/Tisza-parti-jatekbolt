@@ -1,15 +1,42 @@
+body {
+    background-color: #d2fafb;
+    margin: 0;
+}
+
+.csik {
+    background-color: #2c003e;
+    height: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
 main {
-    overflow: hidden; /* Ez vágja le a kilógó dobozokat */
+    overflow: hidden; 
     width: 100%;
-    display: flex; /* Egymás mellé teszi a két .boxok konténert */
+    display: flex; 
+    background-color: #d2fafb;
 }
 
 .boxok {
     display: flex;
-    margin: 20px 0; 
     gap: 20px;
-    padding-right: 20px; 
-    animation: gurulas 15s linear infinite;
+    padding: 20px 10px; 
+    
+   
+    flex-shrink: 0; 
+    
+  
+    animation: gurulas 20s linear infinite;
+}
+
+.box {
+    background-color: #fe346e;
+    height: 200px;
+    width: 200px;
+    border-radius: 30px;
+    flex-shrink: 0; 
 }
 
 @keyframes gurulas {
@@ -17,10 +44,7 @@ main {
         transform: translateX(0);
     }
     100% {
+       
         transform: translateX(-100%);
     }
-}
-
-main:hover .boxok {
-    animation-play-state: paused;
 }
