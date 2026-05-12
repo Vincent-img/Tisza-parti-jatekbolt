@@ -23,12 +23,8 @@ main {
     display: flex;
     gap: 20px;
     padding: 20px 10px; 
-    
-   
     flex-shrink: 0; 
-    
-  
-    animation: gurulas 20s linear infinite;
+    animation: gurulas 40s linear infinite;
 }
 
 .box {
