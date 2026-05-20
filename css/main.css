@@ -10,8 +10,18 @@ body {
     display: flex;
     align-items: center;
     padding-left: 20px;
+    justify-content: center;
 }
-
+a{
+    background-color: #fe346e;
+    height: 10px;
+    width: 10px;
+    text-decoration: none;
+    border-radius: 20px;
+    padding: 5px;
+    gap: 10px;
+    color: #d2fafb;
+}
 main {
     overflow: hidden; 
     width: 100%;
@@ -35,36 +45,25 @@ main {
     border-radius: 20px;
     flex-shrink: 0; 
 }
-.boxok:nth-child(1){
-    background-image: url(//Tisza-parti-jatekbolt/img/lego/lego1.png);
+.akcio h1{
+    text-align: center;
+}
+.akcio{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
 }
 
-.boxok:nth-child(2){
-    background-image: url(//Tisza-parti-jatekbolt/img/lego/lego2.png);
-}
 
-.boxok:nth-child(3){
-    background-image: url(//Tisza-parti-jatekbolt/img/lego/lego3.png);
-}
 
-.boxok:nth-child(4){
-    background-image: url(//Tisza-parti-jatekbolt/img/lego/lego4.png);
-}
 
-.boxok:nth-child(5){
-    background-image: url(//Tisza-parti-jatekbolt/img/lego/lego5.png);
-}
-
-.boxok:nth-child(6){
-    background-image: url(//Tisza-parti-jatekbolt/img/lego/lego6.png);
-}
-
-@keyframes gurulas {
+ @keyframes gurulas {
     0% {
         transform: translateX(0);
-    }
+    } 
     100% {
        
         transform: translateX(-50%);
     }
-}
+} 

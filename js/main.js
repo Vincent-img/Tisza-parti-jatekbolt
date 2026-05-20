@@ -4,3 +4,9 @@ containers.forEach(container => {
         console.log("Rákattintottál a galériára!");
     });
 });
+
+
+let box = document.createElement('div');
+box.classList.add('box');
+let boxok = document.querySelector('.boxok');
+boxok.appendChild(box);
