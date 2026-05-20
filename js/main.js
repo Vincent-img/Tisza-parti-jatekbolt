@@ -5,8 +5,10 @@ containers.forEach(container => {
     });
 });
 
+const boxContainer = document.querySelector('.boxok');
+if (boxContainer) {
+    const boxes = Array.from(boxContainer.children);
+    boxes.forEach(box => boxContainer.appendChild(box.cloneNode(true)));
+}
 
-let box = document.createElement('div');
-box.classList.add('box');
-let boxok = document.querySelector('.boxok');
-boxok.appendChild(box);
+
