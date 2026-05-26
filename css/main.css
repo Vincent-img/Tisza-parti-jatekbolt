@@ -114,6 +114,17 @@ h1{
     object-fit: contain;
     height: auto;
 }
+.logo{
+    width: 40px;
+    height: 40px;
+    background-color:#f8f405;
+    border-radius: 50px;
+
+}
+.logo img{
+    width: 40px;
+    justify-content: center;
+}
 
 
 
