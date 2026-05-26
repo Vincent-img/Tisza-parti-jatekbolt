@@ -104,9 +104,15 @@ h1{
     padding: 5px 5px;
     flex-shrink: 0;
     height: 200px;
-    width: 150px;
+    width: 300px;
     border-radius: 20px;
     flex-shrink: 0;
+    justify-content: center;
+}
+.akcio-blokk img{
+    width: 250px;
+    object-fit: contain;
+    height: auto;
 }
 
 
