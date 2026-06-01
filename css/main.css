@@ -15,6 +15,7 @@ body {
     padding-left: 20px;
     justify-content: center;
 }
+
 .kozepcsik{
     background-color: #2c003e;
     height: 60px;
@@ -110,6 +111,17 @@ h1{
     border-radius: 20px;
     flex-shrink: 0;
     justify-content: center;
+}
+.ar-box {
+    margin-top: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    height: 200px;
+    color: #fff;
+    background-color: #ff5733;
+    padding: 5px 10px;
+    border-radius: 5px;
+    display: inline-block;
 }
 .akcio-blokk img{
     width: 250px;
