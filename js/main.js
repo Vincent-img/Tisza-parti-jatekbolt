@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
     szurokGomb.addEventListener("click", () => {
         szurokMenu.classList.toggle("active");
     });
-
     // Szűrési logika
     szurok.forEach(szuro => {
         szuro.addEventListener("change", () => {
