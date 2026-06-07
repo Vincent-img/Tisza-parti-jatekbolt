@@ -1,11 +1,10 @@
-/* --- Globális alapok és elrendezés --- */
 body {
     background-color: #d2fafb;
     margin: 0;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    font-family: sans-serif; /* Adtam neki egy alap betűtípust, hogy szebb legyen a szöveg */
+    font-family: sans-serif; 
 }
 
 main {
@@ -17,7 +16,7 @@ main {
     flex: 1;
 }
 
-/* --- Fejléc és Menüsor (Header) --- */
+
 .csik-fent {
     background-color: #2c003e;
     height: 60px;
@@ -25,10 +24,10 @@ main {
     display: flex;
     align-items: center;
     padding: 0 20px;
-    justify-content: space-between; /* Elválasztja a logót és a menügombokat egymástól */
+    justify-content: space-between; 
 }
 
-/* Külön container a menü jobb oldalának, hogy ne egymáson üljenek a gombok */
+
 .csik-fent > div:last-of-type {
     display: flex;
     align-items: center;
@@ -39,7 +38,7 @@ a {
     background-color: #fe346e;
     text-decoration: none;
     border-radius: 20px;
-    padding: 8px 16px; /* Fix magasság helyett ez nyújtja ki szépen a szöveg körül */
+    padding: 8px 16px; 
     color: #d2fafb;
     font-weight: bold;
     display: inline-block;
@@ -47,10 +46,9 @@ a {
 }
 
 a:hover {
-    background-color: #d12254; /* Sötétebb pink, ha ráviszed az egeret */
+    background-color: #d12254; 
 }
 
-/* --- Logó --- */
 .logo {
     width: 40px;
     height: 40px;
@@ -66,42 +64,42 @@ a:hover {
     height: auto;
 }
 
-/* --- Felső Gurulós Logósáv (JAVÍTVA) --- */
+
 .boxok {
     display: flex;
     gap: 20px;
     padding: 20px 10px;
     flex-shrink: 0; 
-    width: max-content; /* KRITIKUS: Biztosítja, hogy a klónozott elemek is egy sorban, teljes szélességben elférjenek */
+    width: max-content; 
     animation: gurulas 40s linear infinite;
 }
 
 .box {
     background-color: #fe346e;
-    height: 120px; /* Kicsit megnöveltük, hogy látványosabb legyen */
+    height: 120px; 
     width: 120px;
     border-radius: 20px;
     flex-shrink: 0; 
-    padding: 8px; /* Beljebb tolja a képet, így látszik a szép pink keret! */
-    box-shadow: 0 4px 8px rgba(44, 0, 62, 0.2); /* Finom árnyék */
-    box-sizing: border-box; /* Hogy a padding ne torzítsa a fix 120px-es méretet */
+    padding: 8px; 
+    box-shadow: 0 4px 8px rgba(44, 0, 62, 0.2);
+    box-sizing: border-box; 
     transition: transform 0.2s ease;
 }
 
 .box:hover {
-    transform: scale(1.05); /* Kicsit kiemelkedik, ha rámutatsz */
+    transform: scale(1.05); 
     cursor: pointer;
 }
 
 .box img {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Nem torzítja el a sisakokat/logókat */
+    object-fit: contain; 
     border-radius: 12px;
     background-color: transparent;
 }
 
-/* --- Cím --- */
+
 h1 {
     text-align: center;
     background-color: #2c003e;
@@ -113,7 +111,7 @@ h1 {
     font-size: 250%;
 }
 
-/* --- Szűrő Menü --- */
+
 .szurok {
     position: relative;
     display: inline-block;
@@ -156,7 +154,7 @@ h1 {
     display: block;
 }
 
-/* --- Akciós Termékek Sávja (JAVÍTVA) --- */
+
 .akcio {
     display: flex;
     flex-wrap: nowrap;
@@ -176,16 +174,15 @@ h1 {
     border-radius: 10px;
 }
 
-/* Ez a konkrét termékkártya doboza */
+
 .akcio-blokk {
-    background-color: #ffffff; /* Aqua helyett a tiszta fehér háttér kiemeli a terméket */
     display: flex;
-    flex-direction: column; /* Egymás alá rakja a képet és az árat */
+    flex-direction: column; 
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    height: 280px; /* Megemelt magasság, hogy kényelmesen elférjenek */
-    width: 200px;  /* Kompaktabb, profibb szélesség */
+    height: 280px; 
+    width: 200px;  
     border-radius: 20px;
     flex-shrink: 0;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
@@ -194,7 +191,7 @@ h1 {
 
 .akcio-blokk img {
     width: 100%;
-    height: 160px; /* Fixált képterület */
+    height: 160px; 
     object-fit: contain;
 }
 
@@ -202,7 +199,7 @@ h1 {
     margin-top: 8px;
     font-size: 16px;
     font-weight: bold;
-    height: auto; /* Törölve a fix 200px magasság, így nem lóg ki */
+    height: auto; 
     color: #00fff2;
     background-color: #2c003e;
     padding: 8px 12px;
@@ -213,7 +210,7 @@ h1 {
     box-sizing: border-box;
 }
 
-/* Megtartottam az eredeti osztályodat is, ha esetleg máshol használnád */
+
 .akcio-box {
     background-color: #fe346e;
     height: 400px;
@@ -222,7 +219,7 @@ h1 {
     flex-shrink: 0;
 }
 
-/* --- Maradék sávok és lábléc --- */
+
 .kozepcsik {
     background-color: #2c003e;
     height: 60px;
@@ -244,8 +241,6 @@ h1 {
         transform: translateX(0);
     } 
     100% {
-        /* Mivel a JS megduplázta az elemeket, a -50% pont az eredeti lista vége. */
-        /* Hozzá kell adnunk a gap felét (-10px), hogy a váltás mikroszekundumra pontosan ugyanoda essen! */
         transform: translateX(calc(-50% - 10px)); 
     }
 }
