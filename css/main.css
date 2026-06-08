@@ -75,7 +75,7 @@ a:hover {
 }
 
 .box {
-    background-color: #fe346e;
+    
     height: 120px; 
     width: 120px;
     border-radius: 20px;
@@ -97,6 +97,7 @@ a:hover {
     object-fit: contain; 
     border-radius: 12px;
     background-color: transparent;
+    border-radius: 100%;
 }
 
 
