@@ -7,7 +7,7 @@ def rename_images_in_folder(a):
         files = [f for f in os.listdir(a) if f.lower().endswith(image_extensions)]
         for index, file_name in enumerate(files, start=1):
             old_path = os.path.join(a, file_name)
-            new_name = f"logo{index}{os.path.splitext(file_name)[1]}"
+            new_name = f"lego_ruha{index}{os.path.splitext(file_name)[1]}"
             new_path = os.path.join(a, new_name)
             os.rename(old_path, new_path)
             print(f"{file_name} -> {new_name}")
