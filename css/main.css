@@ -233,8 +233,10 @@ h1 {
 
 .csik-lent {
     background-color: #2c003e;
+    color: aqua;
     height: 60px;
     display: flex;
+    justify-content: center;
 }
 
 @keyframes gurulas {
