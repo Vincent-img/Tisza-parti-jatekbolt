@@ -1,6 +1,6 @@
 import os
 
-a = r"D:\hvprojekt\Tisza-parti-jatekbolt\img\lego\f1\logok"
+a = r"Tisza-parti-jatekbolt\img\lego\ruha"
 def rename_images_in_folder(a):
     image_extensions = (".jpg", ".jpeg", ".png", ".bmp", ".gif")
     try:
