@@ -74,7 +74,22 @@ a.kosar-link:hover {
     z-index: 1000;
     min-width: 180px;
 }
+/* Csak a Legók szekcióra fog vonatkozni */
+.akcio.omlesztett {
+    display: flex;
+    flex-wrap: wrap;       /* Engedi, hogy egymás alá-mellé törjenek a képek */
+    justify-content: center; /* Középre rendezi őket a képernyőn */
+    gap: 15px;             /* Távolság a dobozok között */
+    overflow-x: visible;   /* Kikapcsolja a vízszintes görgetést */
+    width: 100%;
+    box-sizing: border-box;
+}
 
+/* Opcionális: Ha szeretnéd, hogy a nagy tömegben kicsit fixebb méretük legyen a legóknak */
+.akcio.omlesztett .akcio-blokk {
+    flex: 0 1 180px;       /* Kb. 180px széles lesz egy doboz */
+    min-width: 140px;      /* Mobilra, hogy ne menjenek teljesen össze */
+}
 .szurok-menu.active {
     display: block;
 }
