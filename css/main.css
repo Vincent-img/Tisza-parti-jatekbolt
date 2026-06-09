@@ -114,15 +114,13 @@ a:hover {
     gap: 20px;
     padding: 20px 10px;
     flex-shrink: 0; 
-    width: max-content; 
-    animation: gurulas 40s linear infinite;
+    animation: gurulas 45s linear infinite;
 }
 
 .box {
     height: 120px; 
-    width: 120px;
+    flex: 0 0 120px;
     border-radius: 20px;
-    flex-shrink: 0; 
     padding: 8px; 
     box-shadow: 0 4px 8px rgba(44, 0, 62, 0.2);
     box-sizing: border-box; 
@@ -385,6 +383,10 @@ h1 {
   background-color: #e0006c;
 }
 @keyframes gurulas {
-    0% { transform: translateX(0); } 
-    100% { transform: translateX(calc(-50% - 10px)); }
+    0% { 
+        transform: translateX(0); 
+    } 
+    100% { 
+        transform: translateX(-50%); 
+    }
 }
