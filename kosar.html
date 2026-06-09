@@ -1,48 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="hu">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kosár</title>
+    <title>Kosár - Figma Design</title>
     <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
-    <header><div class="csik-fent">
-        <div class="logo">
-            <img src="img/logo.png" alt=""> 
-        </div>
-        <div>
+    <header>
+        <div class="csik-fent">
+            <div class="logo">
+                <img src="img/f1/lego_f1_logo.png" alt="Logo">
+            </div>
             <div class="szurok">
-                <button class="szurok-gomb">Szűrők</button>
-                <div class="szurok-menu">
-                    <label>
-                        <input type="checkbox" class="szuro" value="lego"> LEGO
-                    </label>
-                    <label>
-                        <input type="checkbox" class="szuro" value="akcio"> Akciós termékek
-                    </label>
-                    <label>
-                        <input type="checkbox" class="szuro" value="uj"> Új termékek
-                    </label>
+                <a href="index.html">Főoldal</a>
+                <a href="kosar.html">Kosár</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="kosar-oldal-container">
+        <div class="kosar-felso-resz">
+            
+            <div class="kosar-bal-blokk">
+                <div class="nagy-termek-doboz">
+                    <img src="img/f1/lego13.png" alt="LEGO Termék">
                 </div>
-            </div>                
-            
-            
-                          
-            <a href="">valami</a>
-            <a href="">valami</a>
-            <a href="">valami</a>
-            <a href="">valami</a>
-            <a href="kosar.html">Kosár</a>
-        </div>
-        <div class="kosar">
+                <div class="termek-leiras">
+                    <h2>LEGO Speed Champions - McLaren F1</h2>
+                    <p>Építsd meg a saját Forma-1-es versenyautódat! Részletgazdag kidolgozás, eredeti szponzori logók és pilóta minifigura a csomagban.</p>
+                </div>
+            </div>
+
+            <div class="kosar-jobb-blokk">
+                <div class="figma-ar-gomb">9 990 Ft</div>
+                <button class="figma-kosarba-gomb">Megrendelés</button>
+            </div>
 
         </div>
-    </div>
-</header>
-    <main></main>
-    <footer></footer>
 
-    <script src="js/main.js"></script>
+        <h1 class="also-ajánlo-cim">Ajánlott termékek</h1>
+        <div class="akcio">
+            <div class="akcio-blokk">
+                <img src="img/art/lego44.png" alt="Termék">
+                <div class="ar-box">valami</div>
+            </div>
+            <div class="akcio-blokk">
+                <img src="img/art/lego47.png" alt="Termék">
+                <div class="ar-box">valami</div>
+            </div>
+            <div class="akcio-blokk">
+                <img src="img/art/lego50.png" alt="Termék">
+                <div class="ar-box">valami</div>
+            </div>
+            <div class="akcio-blokk">
+                <img src="img/art/lego53.png" alt="Termék">
+                <div class="ar-box">valami</div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>tiszaparti játékbolt ZRT.</p>
+    </footer>
 </body>
 </html>
