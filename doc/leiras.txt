@@ -1,1 +1,73 @@
 Egy játékbolt weblapjának az elkészítése a cél fő megbízott: alulírott Horváth Vencel
+
+Projekt áttekintés:
+A projekt egy statikus weboldal, amely egy játékbolt termékeit és kosárfunkcióját mutatja be. Cél egy tiszta, könnyen karbantartható front-end felület készítése HTML, CSS és JavaScript használatával.
+
+Fájlstruktúra (fontosabb elemek):
+- index.html — kezdőoldal
+- kosar.html — kosár oldal
+- css/main.css — stílusok
+- js/main.js — interaktivitás
+- img/ — képek és logó (lego/ almappa termékfotókkal)
+- doc/leiras.txt — jelen dokumentáció
+
+Fejlesztési útmutató:
+- Nincs szükség szerverre; lokálisan a böngészőben megnyitható az index.html.
+- Javasolt: Visual Studio Code + Live Server bővítmény a gyors fejlesztési előnézethez.
+- Kód formázás: HTML5, CSS3, Vanilla JS. Egyszerű statikus oldal, build lépés nincs.
+
+Használat:
+- Nyisd meg az index.html-t vagy kosar.html-t böngészőben.
+- A kosár működését a js/main.js kezeli (termék hozzáadás, eltávolítás, mennyiség).
+- Szűrők és navigáció alapvető UI-elemek jelenleg statikusak vagy egyszerű JS-sel kezeltek.
+
+Karakterisztikák és korlátozások:
+- Statikus oldal, nincs szerver-oldali feldolgozás vagy adatbázis.
+- A kosár adatai a memóriában/klienstárban tárolhatók (jelenleg egyszerű megoldás).
+
+További teendők / fejlesztési javaslatok:
+- Kosár tartalmának tartósítása localStorage-ban.
+- Reszponzív design finomítása és accessibility javítása.
+- Egységtesztek és lint szabályok bevezetése JS/CSS-re.
+- Képek optimalizálása a betöltési teljesítményért.
+
+Licenc és szerző:
+- Szerző: Horváth Vencel
+- A projekt forráskódjának kezelése és licencelése a fejlesztő döntése szerint.
+
+Egy játékbolt weblapjának az elkészítése a cél. Fő felelős: Horváth Vencel
+
+Projekt áttekintés:
+A projekt egy statikus weboldal, amely egy játékbolt termékeit és kosárfunkcióját mutatja be. Cél egy tiszta, könnyen karbantartható front-end felület készítése HTML, CSS és JavaScript használatával.
+
+Fájlstruktúra (fontosabb elemek):
+- index.html — kezdőoldal
+- kosar.html — kosár oldal
+- css/main.css — stílusok
+- js/main.js — interaktivitás
+- img/ — képek és logó (lego/ almappa termékfotókkal)
+- doc/leiras.txt — jelen dokumentáció
+
+Fejlesztési útmutató:
+- Nincs szükség szerverre; lokálisan a böngészőben megnyitható az index.html.
+- Javasolt: Visual Studio Code + Live Server bővítmény a gyors fejlesztési előnézethez.
+- Kód formázás: HTML5, CSS3, Vanilla JS. Egyszerű statikus oldal, build lépés nincs.
+
+Használat:
+- Nyisd meg az index.html-t vagy kosar.html-t böngészőben.
+- A kosár működését a js/main.js kezeli (termék hozzáadás, eltávolítás, mennyiség).
+- Szűrők és navigáció alapvető UI-elemek jelenleg statikusak vagy egyszerű JS-sel kezeltek.
+
+Karakterisztikák és korlátozások:
+- Statikus oldal, nincs szerver-oldali feldolgozás vagy adatbázis.
+- A kosár adatai a memóriában/klienstárban tárolhatók (jelenleg egyszerű megoldás).
+
+További teendők / fejlesztési javaslatok:
+- Kosár tartalmának tartósítása localStorage-ban.
+- Reszponzív design finomítása és accessibility javítása.
+- Egységtesztek és lint szabályok bevezetése JS/CSS-re.
+- Képek optimalizálása a betöltési teljesítményért.
+
+Licenc és szerző:
+- Szerző: Horváth Vencel
+- A projekt forráskódjának kezelése és licencelése a
