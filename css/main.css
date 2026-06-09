@@ -19,12 +19,12 @@ main {
 
 .csik-fent {
     background-color: #2c003e;
-    height: 60px;
+    height: 70px; /* Kicsit megemeltem, hogy kényelmesen elférjenek a szép nagy gombok */
     color: white;
     display: flex;
     align-items: center;
     padding: 0 20px;
-    justify-content: space-between; 
+    justify-content: space-between; /* Kitolja a logót balra, a szűrőt középre, a kosarat jobbra */
 }
 
 .csik-fent > div:last-of-type {
@@ -32,7 +32,52 @@ main {
     align-items: center;
     gap: 15px;
 }
+.szurok-gomb, 
+a.kosar-link {
+    background-color: #fe346e !important;
+    color: #d2fafb !important;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    font-family: sans-serif;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
 
+    /* --- EZ A KÉT SOR FOGJA MEGOLDANI A LEKEREKÍTÉST --- */
+    border-radius: 20px !important; /* Teljesen lekerekíti a gombok szélét capsule formára */
+    padding: 8px 20px !important;  /* Ad egy kis belső teret a szövegnek (fent/lent 8px, balra/jobbra 20px) */
+}
+
+.szurok-gomb:hover, 
+a.kosar-link:hover {
+    background-color: #d12254 !important;
+    transform: scale(1.02);
+}
+
+/* --- MENÜ POZÍCIONÁLÁS --- */
+.szurok {
+    position: relative;
+    /* Ez biztosítja, hogy a Szűrők blokk pontosan a menü közepe felett maradjon */
+}
+
+.szurok-menu {
+    display: none;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Pontosan a Szűrők gomb alá középre igazítja a lenyíló ablakot */
+    top: 45px;
+    background-color: white;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    z-index: 1000;
+    min-width: 180px;
+}
+
+.szurok-menu.active {
+    display: block;
+}
 a {
     background-color: #fe346e;
     text-decoration: none;
@@ -300,7 +345,45 @@ h1 {
     justify-content: center;
     align-items: center;
 }
+/* A teljes fejléc sáv */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Elosztja a 3 részt: bal, közép, jobb */
+  align-items: center;
+  background-color: #2b002b; /* A sötétlila háttérszíned */
+  padding: 10px 20px;
+}
 
+/* Biztosítja, hogy a középső elem teljesen középen legyen */
+.nav-left, .nav-right {
+  flex: 1; 
+}
+.nav-center {
+  display: flex;
+  justify-content: center;
+}
+.nav-right {
+  display: flex;
+  justify-content: flex-end; /* Jobbra tolja ki a kosarat */
+}
+
+/* EGYSÉGES GOMB DIZÁJN (A jelenlegi Kosár gombod stílusa alapján) */
+.nav-btn {
+  background-color: #ff007f; /* Élénk rózsaszín/magenta háttér */
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px; /* Lekerekített sarkok */
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+/* Opcionális: Hover effekt mindkét gombra */
+.nav-btn:hover {
+  background-color: #e0006c;
+}
 @keyframes gurulas {
     0% { transform: translateX(0); } 
     100% { transform: translateX(calc(-50% - 10px)); }
