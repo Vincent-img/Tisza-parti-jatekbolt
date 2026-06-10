@@ -14,12 +14,10 @@ body {
 }
 
 main {
-    overflow: hidden; 
     width: 100%;
     display: flex; 
     flex-direction: column; 
     background-color: #d2fafb;
-    flex: 1;
 }
 
 .csik-fent {
@@ -32,15 +30,16 @@ main {
     justify-content: space-between; 
 }
 
-.csik-fent > div:last-of-type {
+.csik-fent .nav-right {
     display: flex;
     align-items: center;
     gap: 15px;
 }
+
 .szurok-gomb, 
 a.kosar-link {
-    background-color: #fe346e !important;
-    color: #d2fafb !important;
+    background-color: #fe346e;
+    color: #d2fafb;
     text-decoration: none;
     font-weight: bold;
     font-size: 16px;
@@ -48,14 +47,16 @@ a.kosar-link {
     display: inline-block;
     cursor: pointer;
     border: none;
-    border-radius: 20px !important; 
-    padding: 8px 20px !important; 
+    border-radius: 20px; 
+    padding: 8px 20px; 
+    transition: background-color 0.2s, transform 0.2s;
 }
 
 .szurok-gomb:hover, 
 a.kosar-link:hover {
-    background-color: #d12254 !important;
+    background-color: #d12254;
     transform: scale(1.02);
+    color: #d2fafb;
 }
 
 .szurok {
@@ -74,6 +75,17 @@ a.kosar-link:hover {
     border-radius: 12px;
     z-index: 1000;
     min-width: 180px;
+}
+
+.szurok-menu label {
+    display: block;
+    margin: 5px 0;
+    color: #2c003e;
+    cursor: pointer;
+}
+
+.szurok-menu input[type="checkbox"] {
+    margin-right: 5px;
 }
 
 .akcio.omlesztett {
@@ -127,8 +139,32 @@ a:hover {
     display: flex;
     gap: 20px;
     padding: 20px 10px;
-    flex-shrink: 0; 
+    flex-shrink: 0;
+    /* Biztosítjuk, hogy ne törjenek meg a dobozok */
+    width: max-content;
     animation: gurulas 45s linear infinite;
+    
+    /* Görgetési tulajdonságok közvetlenül a .boxok-ra */
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: #2c003e #d2fafb;
+}
+
+/* Egyedi görgetősáv stílus a .boxok-hoz */
+.boxok::-webkit-scrollbar {
+    height: 10px;
+}
+.boxok::-webkit-scrollbar-track {
+    background: #d2fafb;
+}
+.boxok::-webkit-scrollbar-thumb {
+    background-color: #2c003e;
+    border-radius: 10px;
+}
+
+/* Megállítjuk az animációt, ha az egér a .boxok felett van */
+.boxok:hover {
+    animation-play-state: paused;
 }
 
 .box {
@@ -164,45 +200,6 @@ h1 {
     border-radius: 20px;
     font-size: 250%;
 }
-
-.szurok {
-    position: relative;
-    display: inline-block;
-}
-
-.szurok-gomb {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-}
-
-.szurok-menu {
-    display: none;
-    position: absolute;
-    right: 0; 
-    background-color: white;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 1000;
-    min-width: 150px;
-}
-
-.szurok-menu label {
-    display: block;
-    margin: 5px 0;
-    color: #2c003e;
-    cursor: pointer;
-}
-
-.szurok-menu input[type="checkbox"] {
-    margin-right: 5px;
-}
-
 .szurok-menu.active {
     display: block;
 }
