@@ -1,11 +1,40 @@
-// Galéria végtelenített gurulás másolása
-const boxContainer = document.querySelector('.boxok');
-if (boxContainer) {
-    const boxes = Array.from(boxContainer.children);
-    boxes.forEach(box => boxContainer.appendChild(box.cloneNode(true)));
-}
-
 document.addEventListener("DOMContentLoaded", () => {
+    
+    // --- DINAMIKUS VÉGTELENÍTETT GÖRGŐ LOGIKA ---
+    const boxContainer = document.querySelector('.boxok');
+    if (boxContainer) {
+        // Klónozzuk a logókat a végtelenítéshez
+        const boxes = Array.from(boxContainer.children);
+        boxes.forEach(box => boxContainer.appendChild(box.cloneNode(true)));
+
+        let speed = 1; // Itt tudod állítani a gurulás sebességét
+        let isPaused = false;
+
+        function scrollLogos() {
+            if (!isPaused) {
+                boxContainer.scrollLeft += speed;
+                
+                // Ha elérjük a lista felét (a másolt elemek elejét), visszaugrik észrevétlenül
+                if (boxContainer.scrollLeft >= boxContainer.scrollWidth / 2) {
+                    boxContainer.scrollLeft = 0;
+                }
+            }
+            requestAnimationFrame(scrollLogos);
+        }
+
+        // Elindítjuk az automata mozgást
+        scrollLogos();
+
+        // Egér események: ha rajta van az egér, megáll a gurulás, szabadon scrollozható
+        boxContainer.addEventListener('mouseenter', () => isPaused = true);
+        boxContainer.addEventListener('mouseleave', () => isPaused = false);
+        
+        // Touch események telefonokra:
+        boxContainer.addEventListener('touchstart', () => isPaused = true);
+        boxContainer.addEventListener('touchend', () => isPaused = false);
+    }
+
+    // --- SZŰRŐK ÉS KOSÁR LOGIKA ---
     const szurokGomb = document.querySelector(".szurok-gomb");
     const szurokMenu = document.querySelector(".szurok-menu");
     const szurok = document.querySelectorAll(".szuro");
@@ -38,7 +67,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // --- DINAMIKUS KOSÁRBA RAKÁS LOGIKA ---
     // Figyeljük a főoldali termékkattintásokat
     termekek.forEach(termek => {
         termek.style.cursor = "pointer";
