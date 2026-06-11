@@ -32,8 +32,41 @@ document.addEventListener("DOMContentLoaded", () => {
     const szurokMenu = document.querySelector(".szurok-menu");
     const szurok = document.querySelectorAll(".szuro");
     
-    // !!! JAVÍTÁS: Csak azokat a blokkokat gyűjtjük be, amik valódi termékek (van data-nev-ük) !!!
     const termekek = document.querySelectorAll(".akcio-blokk[data-nev]");
+
+    // Közös szűrő funkció
+    function frissitSzures() {
+        const aktivCheckboxok = Array.from(szurok)
+            .filter(input => input.checked)
+            .map(input => input.value);
+
+        const aktivBox = document.querySelector('.boxok .box.aktiv');
+        const nyersBrand = aktivBox ? aktivBox.getAttribute('data-brand') : "";
+        const kivalasztottCsapatok = nyersBrand ? nyersBrand.split('|').map(item => item.trim().toLowerCase()) : [];
+
+        termekek.forEach(termek => {
+            const termekKategoria = termek.getAttribute("data-category");
+            const termekNev = (termek.getAttribute('data-nev') || "").trim().toLowerCase();
+
+            const kategoriaMatch = aktivCheckboxok.length === 0 || aktivCheckboxok.includes(termekKategoria);
+            
+            const brandMatch = kivalasztottCsapatok.length === 0 || kivalasztottCsapatok.some(csapat => termekNev.includes(csapat));
+
+            termek.style.display = (kategoriaMatch && brandMatch) ? "block" : "none";
+        });
+
+        // Szekciók (H1 és a hozzá tartozó konténer) elrejtése, ha üresek
+        document.querySelectorAll('.akcio').forEach(szekcio => {
+            const vanLathatoTermek = Array.from(szekcio.querySelectorAll('.akcio-blokk'))
+                .some(t => t.style.display !== "none");
+            
+            const cim = szekcio.previousElementSibling;
+            if (cim && cim.tagName === "H1") {
+                cim.style.display = vanLathatoTermek ? "block" : "none";
+                szekcio.style.display = vanLathatoTermek ? "flex" : "none";
+            }
+        });
+    }
 
     if (szurokGomb && szurokMenu) {
         szurokGomb.addEventListener("click", () => {
@@ -41,24 +74,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (szurok.length > 0 && termekek.length > 0) {
-        szurok.forEach(szuro => {
-            szuro.addEventListener("change", () => {
-                const aktivSzurok = Array.from(szurok)
-                    .filter(input => input.checked)
-                    .map(input => input.value);
-
-                termekek.forEach(termek => {
-                    const termekKategoria = termek.getAttribute("data-category");
-                    if (aktivSzurok.length === 0 || aktivSzurok.includes(termekKategoria)) {
-                        termek.style.display = "block";
-                    } else {
-                        termek.style.display = "none";
-                    }
-                });
-            });
-        });
-    }
+    szurok.forEach(szuro => szuro.addEventListener("change", frissitSzures));
 
     // --- F1 LOGÓK KATTINTÁS ALAPÚ SZŰRÉSE ---
     const szuroBoxok = document.querySelectorAll('.boxok .box');
@@ -66,35 +82,24 @@ document.addEventListener("DOMContentLoaded", () => {
     if (szuroBoxok.length > 0 && termekek.length > 0) {
         szuroBoxok.forEach(box => {
             box.addEventListener('click', () => {
+                // Ellenőrizzük, hogy a kattintott doboz már aktív-e
+                const wasActive = box.classList.contains('aktiv');
+
+                // Először távolítsuk el az 'aktiv' osztályt az összes dobozról
                 szuroBoxok.forEach(b => b.classList.remove('aktiv'));
-                box.classList.add('aktiv');
 
-                const nyersBrand = box.getAttribute('data-brand');
-                
-                // Ha az első logóra kattintunk (amiben az összes márka benne van), vagy üres: mutassunk mindent
-                if (!nyersBrand || nyersBrand.trim() === "") {
-                    termekek.forEach(termek => termek.style.display = 'block');
-                    return;
+                // Ha a kattintott doboz NEM volt aktív, akkor tegyük aktívvá.
+                // Ha aktív volt, akkor most deaktiváltuk (és az összes többit is), így "visszacsináltuk" a szűrést.
+                if (!wasActive) {
+                    box.classList.add('aktiv');
                 }
-
-                const kivalasztottBrandek = nyersBrand.split('|').map(item => item.trim().toLowerCase());
-
-                termekek.forEach(termek => {
-                    const termekNev = (termek.getAttribute('data-nev') || "").trim().toLowerCase();
-
-                    const vanEgyezes = kivalasztottBrandek.some(brand => {
-                        return termekNev === brand || termekNev.includes(brand) || brand.includes(termekNev);
-                    });
-
-                    if (vanEgyezes) {
-                        termek.style.display = 'block'; 
-                    } else {
-                        termek.style.display = 'none';
-                    }
-                });
+                frissitSzures();
             });
         });
     }
+
+    // Alapértelmezett futtatás az oldal betöltésekor
+    frissitSzures();
 
     // Termékkattintások (Kosárba küldés)
     termekek.forEach(termek => {
